@@ -1,2 +1,5 @@
-edu\epsevg\PROP\LAB1\model\Persona.class
-edu\epsevg\PROP\LAB1\App.class
+edu\epsevg\prop\lab\sessio1\model\Alumne.class
+edu\epsevg\prop\lab\sessio1\App.class
+edu\epsevg\prop\lab\sessio1\model\Imprimible.class
+edu\epsevg\prop\lab\sessio1\App$1.class
+edu\epsevg\prop\lab\sessio1\model\Persona.class
