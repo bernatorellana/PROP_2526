@@ -7,10 +7,14 @@ import java.util.Collections;
 import static java.util.Collections.list;
 import java.util.Comparator;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
+import java.util.TreeMap;
 import java.util.TreeSet;
 
 /**
@@ -22,7 +26,8 @@ public class App {
     
     public static void main(String[] args) {
         //sessio1();
-        sessio2();
+        //sessio2();
+        sessio3();
     }
 
     private static void sessio1() {
@@ -135,5 +140,42 @@ public class App {
         }
         
         //=====================================
+    }
+
+    private static void sessio3() {
+
+        
+        
+        Alumne a1 = new Alumne(57, "Maria", "Pérez", new Date());
+        Alumne a2 = new Alumne(15, "Joan", "García", new Date());
+        Alumne a3 = new Alumne(10, "Marta", "Miralles", new Date());
+        
+                                        // Exemple de TreeMap proporcionant una ordenació específica de les claus
+        Map<Integer,Alumne> alumnesPerId = new TreeMap<>((o1, o2) -> {
+            return o1-o2;
+        });
+        alumnesPerId.put( a1.getId(), a1 );
+        alumnesPerId.put( a2.getId(), a2 );
+        alumnesPerId.put( a3.getId(), a3 );
+        //-------------------------------------------------
+        Alumne a57 = alumnesPerId.get(57);
+        System.out.println("> alumne amb id=57:"+a57);
+        a57.setCognom("XXXXX");
+        System.out.println(">"+a1.getCognom());
+        
+        if(alumnesPerId.containsKey(666)){
+            Alumne a666 = alumnesPerId.get(666);
+            System.out.println(">"+a666.getCognom());
+        }
+        alumnesPerId.put(57, new Alumne(666, "DIABOLIC", "Pérez", new Date()));
+        
+        // Recorreguts pels Maps
+        System.out.println("Recorreguts pels Maps");
+        System.out.println("=============================");
+        for(Entry<Integer,Alumne> parell: alumnesPerId.entrySet()){
+            System.out.println(">"+parell.getKey()+":"+parell.getValue());
+        }
+        
+        
     }
 }
